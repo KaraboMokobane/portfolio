@@ -304,6 +304,29 @@
                 transform: rotate(45deg) translate(5px, 5px);
             }
         }
+        /*     GIF Section     */
+
+         .gif-image img{
+            opacity: 10%;
+            
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+
+
+        .gif-image{
+            top: 0;
+            left: 0;
+            position: fixed;
+
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
         
         /* About Section */
         .about {
@@ -770,6 +793,11 @@
             </div>
         </div>
         <div class="hero-bg"></div>
+
+        <div class="gif-image fade-in">
+            <img src="https://i.gifer.com/D1iW.gif" alt="Gif">
+        </div>
+        
         <a href="#about" class="scroll-down">
             <span>Scroll Down</span>
             <div class="arrow"></div>
