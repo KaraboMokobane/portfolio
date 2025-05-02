@@ -422,21 +422,6 @@
             color: var(--accent);
             transition: var(--transition);
         }
-
-        .skill-card img {
-            width: 210px; 
-            height: 210px; 
-            object-fit: contain;
-            margin-bottom: 10px; 
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0);
-            padding: 5px;
-            cursor: pointer;
-        }
-
-        .cred-tittle{
-            font-size: 0.9rem;
-        }
         
         .skill-card:hover .skill-icon {
             transform: scale(1.2);
@@ -472,6 +457,28 @@
         
         .skill-card.animated .skill-level::after {
             width: var(--percent);
+        }
+        
+        /*     Creds     */
+        
+        .skill-card img {
+            width: 210px; 
+            height: 210px; 
+            object-fit: contain;
+            margin-bottom: 10px; 
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0);
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .cred-tittle{
+            font-size: 0.9rem;
+        }
+
+        .skill-card img:hover{
+            transform: scale(1.1);
+            color: var(--accent-light);
         }
         
         /* Projects Section */
