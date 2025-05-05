@@ -461,25 +461,111 @@
         
         /*     Creds     */
         
-        .skill-card img {
+                .creds-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 0.01rem;
+        } 
+
+        .creds-card {
+            perspective: 1000px;
+            width: 275px;
+            height: 300px; /* Increased to accommodate title */
+            margin: 15px;
+            background-color: #0feb5800;
+            border-radius: 5px;
+
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .creds-card .flip-card-front img {
+            margin-top: 10px;
             width: 210px; 
             height: 210px; 
-            object-fit: contain;
+            object-fit: contain; 
             margin-bottom: 10px; 
+            border-radius: 5px; 
+            background: rgba(0, 0, 0, 0); 
+            padding: 15px; 
+        }
+
+        .creds-card img{
+            width: fit-content;
+            height: fit-content;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .creds-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
             border-radius: 8px;
-            background: rgba(255, 255, 255, 0);
-            padding: 5px;
-            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flip-card-front {
+            background-color: var(--bg-secondary);
+        }
+
+        .flip-card-back {
+            color: rgb(255, 255, 255);
+            transform: rotateY(180deg);
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: var(--bg-secondary);
+        }
+
+        .back-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .cred-tittle{
-            font-size: 0.9rem;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        .skill-card img:hover{
-            transform: scale(1.1);
-            color: var(--accent-light);
+        .back-content h3 {
+            margin-bottom: 10px;
+            font-size: 1rem;
         }
+
+        .back-content ul {
+            text-align: left;
+            padding-left: 20px;
+            margin: 10px 0;
+            font-size: 0.8rem;
+        }
+
+        .back-content p {
+            font-size: 0.7rem;
+            margin-top: auto;
+        }
+
         
         /* Projects Section */
         .projects-grid {
@@ -796,6 +882,7 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#creds">Credentials</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -953,63 +1040,195 @@
     </section>
 
     <!-- Credentials -->
-    <section id="skills" class="skills">
+        <section id="creds" class="creds">
         <div class="container">
             <h2 class="section-title fade-in">My Credentials</h2>
-            <div class="skills-container">
-                <div class="skill-card fade-in delay-1">
-                    <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">
-                        <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/141030018" alt="Data Analysis for Business Decisions">
-                    </a>
-                    <h3 class="cred-tittle">Data Analysis for Business Decisions</h3>
+            <div class="creds-container">
+
+
+                <div class="creds-card fade-in delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">
+                                <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/141030018" alt="Data Analysis for Business Decisions">
+                            </a>
+                            <h3 class="cred-tittle">Data Analysis for Business Decisions</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="back-content">
+                                <h3>Skills Gained:</h3>
+                                <ul>
+                                    <li>Data analysis</li>
+                                    <li>Statistical analysis</li>
+                                    <li>Business intelligence</li>
+                                    <li>Data visualization</li>
+                                    <li>Critical thinking</li>
+                                </ul>
+                                <p>Issued: 25 April 2025</p>
+                                <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="skill-card fade-in delay-1">
-                    <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">
-                        <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/136214029" alt="Change Management & Optimisation">
-                    </a>
-                    <h3 class="cred-tittle">Change Management & Optimisation</h3>
+                <div class="creds-card fade-in delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">
+                                <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/136214029" alt="Data Analysis for Business Decisions">
+                            </a>
+                            <h3 class="cred-tittle">Change Management & Optimisation</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="back-content">
+                                <h3>Skills Gained:</h3>
+                                <ul>
+                                    <li>Change Management</li>
+                                    <li>Process Optimization</li>
+                                    <li>Stakeholder Engagement</li>
+                                    <li>Resistance Management</li>
+                                    <li>Communication Skills</li>
+                                </ul>
+                                <p>Issued: 07 March 2025</p>
+                                <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="skill-card fade-in delay-1">
-                    <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">
-                        <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/130412198" alt="Business Process Re-engineering">
-                    </a>
-                    <h3 class="cred-tittle">Business Process Re-engineering</h3>
+                <div class="creds-card fade-in delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">
+                                <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/130412198" alt="Business Process Re-engineering">
+                            </a>
+                            <h3 class="cred-tittle">Business Process Re-engineering</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="back-content">
+                                <h3>Skills Gained:</h3>
+                                <ul>
+                                    <li>Business Process Analysis</li>
+                                    <li>Change Management</li>
+                                    <li>Process Improvement</li>
+                                    <li>Stakeholder Engagement</li>
+                                    <li>Project Management</li>
+                                </ul>
+                                <p>Issued: 21 January 2025</p>
+                                <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="skill-card fade-in delay-1">
-                    <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">
-                        <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/115278046" alt="Fostering Innovation & Design Thinking">
-                    </a>
-                    <h3 class="cred-tittle">Fostering Innovation & Design Thinking</h3>
+                <div class="creds-card fade-in delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">
+                                <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/115278046" alt="Fostering Innovation & Design Thinking">
+                            </a>
+                            <h3 class="cred-tittle">Fostering Innovation & Design Thinking</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="back-content">
+                                <h3>Skills Gained:</h3>
+                                <ul>
+                                    <li>Innovation Management</li>
+                                    <li>Design Thinking</li>
+                                    <li>Creative Problem Solving</li>
+                                    <li>Collaboration</li>
+                                    <li>User-Centered Design</li>
+                                </ul>
+                                <p>Issued: 13 September 2024</p>
+                                <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="skill-card fade-in delay-1">
-                    <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">
-                        <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/115279062" alt="Business Process & Systems Management">
-                    </a>
-                    <h3 class="cred-tittle">Business Process & Systems Management</h3>
+                <div class="creds-card fade-in delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">
+                                <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/115279062" alt="Business Process & Systems Management">
+                            </a>
+                            <h3 class="cred-tittle">Business Process & Systems Management</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="back-content">
+                                <h3>Skills Gained:</h3>
+                                <ul>
+                                    <li>Business Process Management</li>
+                                    <li>Systems Analysis</li>
+                                    <li>Process Optimization</li>
+                                    <li>Stakeholder Engagement</li>
+                                    <li>Data Analysis</li>
+                                </ul>                                  
+                            <p>Issued: 13 September 2024</p>
+                            <a href="https://www.credential.net/profile/karabomokobane43329/wallet" target="_blank">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="skill-card fade-in delay-1">
-                    <a href="https://ca.badgr.com/public/assertions/sQEIzYbQSBCdPKU6NI6q3g?identity__email=kmokobane@my.bcit.ca" target="_blank">
-                        <img src="Images/Credentials/BCIT - Essentials of Network Addressing & Services - 2023-12-19.png" alt="Network Addressing & Services">
-                    </a>
-                    <h3 class="cred-tittle">Network Addressing & Services</h3>
+                <div class="creds-card fade-in delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <a href="https://ca.badgr.com/public/assertions/sQEIzYbQSBCdPKU6NI6q3g?identity__email=kmokobane@my.bcit.ca&action" target="_blank">
+                                <img src="Images/Credentials/BCIT - Essentials of Network Addressing & Services - 2023-12-19.png" alt="Network Addressing & Services">
+                            </a>
+                            <h3 class="cred-tittle">Network Addressing & Services</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="back-content">
+                                <h3>Skills Gained:</h3>
+                                <ul>
+                                    <li>Importance of routing in large networks</li>
+                                    <li>Create a fully connected network</li>
+                                    <li>IPv4 addressing: Unicast, Multicast, Broadcast</li>
+                                    <li>Configure DHCP for IPv6</li>
+                                    <li>IPv6 addressing and features</li>
+                                    <li>Overview of DNS, HTTP, FTP, Telnet, SSH</li>
+                                    <li>Basic DNS server configuration</li>
+                                </ul>                                  
+                                <p>Issued: 2023</p>
+                                <a href="https://ca.badgr.com/public/assertions/sQEIzYbQSBCdPKU6NI6q3g?identity__email=kmokobane@my.bcit.ca&action" target="_blank">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="skill-card fade-in delay-1">
-                     <a href="https://ca.badgr.com/public/assertions/cUfS1wUNSN-hbqSG_El4tQ?identity__email=kmokobane@my.bcit.ca" target="_blank" >
-                        <img src="Images/Credentials/BCIT - Essentials of Network Terminology & Protocols - 2023-11-18 (3).png" alt="Network Terminology & Protocols">
-                    </a>
-                    <h3 class="cred-tittle">Network Terminology & Protocols</h3>
+                <div class="creds-card fade-in delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <a href="https://ca.badgr.com/public/assertions/cUfS1wUNSN-hbqSG_El4tQ?identity__email=kmokobane@my.bcit.ca&action" target="_blank">
+                                <img src="Images/Credentials/BCIT - Essentials of Network Terminology & Protocols - 2023-11-18 (3).png" alt="Network Terminology & Protocols">
+                            </a>
+                            <h3 class="cred-tittle">Network Terminology & Protocols</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="back-content">
+                                <h3>Skills Gained:</h3>
+                                <ul>
+                                    <li>Network concepts</li>
+                                    <li>Network data overview</li>
+                                    <li>Types of network media</li>
+                                    <li>Build a simple network using a simulator</li>
+                                    <li>Verify network connectivity</li>
+                                    <li>Compare network communication models</li>
+                                    <li>Three-layer network design model</li>
+                                </ul>                                  
+                                <p>Issued: 2023</p>
+                                <a href="https://ca.badgr.com/public/assertions/cUfS1wUNSN-hbqSG_El4tQ?identity__email=kmokobane@my.bcit.ca&action" target="_blank">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
             </div>
         </div>
     </section>
-
+    
+    
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
