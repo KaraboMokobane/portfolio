@@ -882,6 +882,25 @@
                 display:none:
             }
         }
+
+/*       Spinning React Logo */
+
+        @keyframes spin {
+              from {
+                transform: rotate(0deg);
+                }
+              to {
+                transform: rotate(360deg);
+                }
+            }
+
+            .spinning-icon {
+              animation: spin 4s linear infinite;
+              color: #61DAFB; /* React official blue */
+            }
+
+
+        
     </style>
 </head>
 <body>
@@ -1036,8 +1055,16 @@
                     <div class="skill-icon"><i class="fab fa-windows skill-icon"></i></div>
                     <h3 class="skill-title">Windows Server</h3>
                     <p>Skilled in Windows Server management, including Active Directory, Group Policy, and DNS configuration.</p>
+                    <div class="skill-level" style="--percent: 75%"></div>
+                </div>
+
+                <div class="skill-card fade-in" data-delay="1600">
+                    <div class="skill-icon"><i class="fab fa-react skill-icon spinning-icon" title="React.js"></i></div>
+                    <h3 class="skill-title">React.js</h3>
+                    <p>Building interactive UIs with React components and hooks.</p>
                     <div class="skill-level" style="--percent: 35%"></div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1499,13 +1526,9 @@
 
 
 
+//Jason for Form submission
 
-
-
-
-
-
-        document.getElementById('contactForm').addEventListener('submit', async function(event) {
+    document.getElementById('contactForm').addEventListener('submit', async function(event) {
     event.preventDefault();
 
     const form = event.target;
