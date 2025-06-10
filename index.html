@@ -18,16 +18,6 @@
             --shadow: rgba(0, 0, 0, 0.1);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-
-        .light-theme {
-        --bg-primary: #ffffff;
-        --bg-secondary: #f7f7f7;
-        --text-primary: #1a1a1a;
-        --text-secondary: #444;
-        --accent: #6b705c;
-        --accent-light: #4a4e69;
-        --shadow: rgba(0, 0, 0, 0.05);
-        }
         
         * {
             margin: 0;
@@ -930,8 +920,6 @@
                     <li><a href="#creds">Credentials</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
-
                 </ul>
                 <div class="menu-toggle">
                     <div class="bar"></div>
@@ -1582,45 +1570,23 @@
             }
         });
 
-        if (response.ok) {
-            status.textContent = '✅ Message sent successfully!';
-            status.style.color = '#4CAF50';
-            form.reset();
-        } else {
-            status.textContent = '❌ Something went wrong. Please try again.';
+            if (response.ok) {
+                status.textContent = '✅ Message sent successfully!';
+                status.style.color = '#4CAF50';
+                form.reset();
+            } else {
+                status.textContent = '❌ Something went wrong. Please try again.';
+                status.style.color = '#f44336';
+            }
+        } catch (error) {
+            status.textContent = '❌ Error sending message.';
             status.style.color = '#f44336';
         }
-    } catch (error) {
-        status.textContent = '❌ Error sending message.';
-        status.style.color = '#f44336';
-    }
 
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Send Message';
-});
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+    });
 
 
 
-
-
-
-
-
-
-
-
-          const toggleTheme = () => {
-    document.body.classList.toggle('light-theme');
-    
-    // Optionally save preference
-    const isLight = document.body.classList.contains('light-theme');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  };
-
-  // Load saved theme on page load
-  window.onload = () => {
-    if (localStorage.getItem('theme') === 'light') {
-      document.body.classList.add('light-theme');
-    }
-  };
     </script>
